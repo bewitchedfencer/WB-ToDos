@@ -6,6 +6,7 @@
 // =============================================================
 
 var db = require("../models");
+var moment = require('moment');
 // =============================================================
 
 module.exports = function(app){
@@ -24,6 +25,11 @@ app.get("/", function(req, res){
 
 //how do I get this to render properly?
 app.get("/dailies", function(req, res){
-   res.render("dailies");
+    var today = moment().format('MMMM Do YYYY, h:mm:ss a');
+    // console.log(today); used for testing, this is functional
+    var hdbsObj = {
+        page:today
+    }
+   res.render("dailies", hdbsObj);
 });
 };

@@ -20,6 +20,15 @@ var PORT = process.env.PORT || 3000;
 //Requiring models for syncing
 var db = require("./models");
 
+//handlebars set up
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({
+  defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
+
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
