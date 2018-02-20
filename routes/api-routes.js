@@ -8,21 +8,8 @@
 var db = require("../models");
 // =============================================================
 
+module.exports = function(app){
 
-//GET route for getting all of the todos, reminders, and followups (maybe using views would be easier for displaying these)
-app.get("/", function(req, res){
-    db.AdminToDo.findAll({}).then(function(results){
-        var handlebarsObj = {
-            item:results
-        };
-        console.log(handlebarsObj);
-        res.render("index", handlebarsObj);
-
-    });
-});
-
-//why am I building this when I could just use Trello?
-//ANSWER: because this is how I learn
 
 //PATCH route for editing items once they are added
 
@@ -33,3 +20,4 @@ app.get("/", function(req, res){
 //POST route for adding a new item
 
 //API GET all to be displayed as a JSON object. Later update so that it has its own Handlebars page
+};
